@@ -91,4 +91,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initial fetch of regions
     fetchRegions();
+
+    // Form validation and submission
+    form.addEventListener('submit', function (event) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Check if all required fields are filled out
+        const requiredFields = form.querySelectorAll('[required]');
+        let allFieldsFilled = true;
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                allFieldsFilled = false;
+                field.classList.add('error'); // Optionally add error class
+            } else {
+                field.classList.remove('error');
+            }
+        });
+
+        if (!allFieldsFilled) {
+            event.preventDefault();
+            alert('Please fill out all required fields.');
+            return;
+        }
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            event.preventDefault();
+            alert('Passwords do not match.');
+            return;
+        }
+
+        // If all validations pass, show success alert
+        alert('Registered Successfully.');
+    });
 });
