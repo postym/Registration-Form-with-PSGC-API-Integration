@@ -107,7 +107,7 @@ form .fields .input-field{
     margin: 8px 0;
     width: 100%;
     box-sizing: border-box;
-    background-color: #fff; /* Ensure background is white for visibility */
+    background-color: #fff;
 }
 .input-field input :focus,
 .input-field select:focus{
